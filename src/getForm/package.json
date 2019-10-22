@@ -1,0 +1,10 @@
+{
+  "name": "function",
+  "version": "1.0.0",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "aws-sdk": "~2"
+  }
+}
