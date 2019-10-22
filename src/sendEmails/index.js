@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const async = require('async');
 
 exports.handler = async message => {
   console.log(message);
@@ -10,7 +11,7 @@ exports.handler = async message => {
   const senderEmail = formData.senderEmail;
   const receiverEmails = formData.receiverEmails; // array of emails
 
-  receiverEmails.forEach(email => {
+  for (const email of receiverEmails) {
     try {
       // Create the email
       body = await generateEmailBody(name, company);
@@ -38,7 +39,7 @@ exports.handler = async message => {
         })
       };
     }
-  });
+  };
 
   return {
     statusCode: 302,
