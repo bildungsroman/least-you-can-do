@@ -67,7 +67,7 @@ Resources:
       Policies:
         - AWSXrayWriteOnlyAccess
         - SESCrudPolicy:
-            IdentityName: !Ref EnvConfigsenderEmailAsString
+            IdentityName: '*'
       Events:
         FormApiPOSTsubmit:
           Type: Api
