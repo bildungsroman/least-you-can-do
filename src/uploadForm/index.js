@@ -15,15 +15,15 @@ exports.handler = async event => {
     ]);
 
     // Send success signal back to CloudFormation
-    await cfnCR.sendSuccess('uploadForm', {}, message);
+    await cfnCR.sendSuccess('uploadForm', {}, event);
 
     console.log('Succeeded in uploading site content!')
   } catch (err) {
     console.error('Failed to upload site content:');
     console.error(err);
 
-    // Send error message back to CloudFormation
-    await cfnCR.sendFailure(err.message, message);
+    // Send error event back to CloudFormation
+    await cfnCR.sendFailure(err.message, event);
 
     // Re-throw error to ensure invocation is marked as a failure
     throw err;
