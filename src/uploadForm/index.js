@@ -15,7 +15,7 @@ exports.handler = async event => {
     ]);
 
     // Send success signal back to CloudFormation
-    await cfnCR.sendSuccess('PopulateFrontendContent', {}, message);
+    await cfnCR.sendSuccess('uploadForm', {}, message);
 
     console.log('Succeeded in uploading site content!')
   } catch (err) {

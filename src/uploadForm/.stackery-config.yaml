@@ -1,2 +1,2 @@
-function-id: getForm
+function-id: uploadForm
 template-path: ../../template.yaml
