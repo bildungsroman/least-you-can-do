@@ -52,14 +52,14 @@ Resources:
       BucketName: !Sub ${AWS::StackName}-formconte-${AWS::AccountId}
       WebsiteConfiguration:
         IndexDocument: index.html
-  uploadFrontend:
+  uploadForm:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: !Sub ${AWS::StackName}-uploadFrontend
+      FunctionName: !Sub ${AWS::StackName}-uploadForm
       Description: !Sub
         - Stack ${StackTagName} Environment ${EnvironmentTagName} Function ${ResourceName}
-        - ResourceName: uploadFrontend
-      CodeUri: src/uploadFrontend
+        - ResourceName: uploadForm
+      CodeUri: src/uploadForm
       Handler: index.handler
       Runtime: nodejs10.x
       MemorySize: 3008
@@ -73,10 +73,10 @@ Resources:
         Variables:
           BUCKET_NAME: !Ref FormContent
           BUCKET_ARN: !GetAtt FormContent.Arn
-  uploadFrontendDeployTrigger:
+  uploadFormDeployTrigger:
     Type: Custom::FunctionDeployTrigger
     Properties:
-      ServiceToken: !GetAtt uploadFrontend.Arn
+      ServiceToken: !GetAtt uploadForm.Arn
       DeploymentTimestamp: !Ref DeploymentTimestamp
 Parameters:
   StackTagName:
