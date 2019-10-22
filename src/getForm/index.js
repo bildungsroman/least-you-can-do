@@ -28,7 +28,7 @@ exports.handler = async event => {
     throw err;
   }
 
-  const responseBody = fs.readFileSync('./form.html', 'utf8');
+  const responseBody = fs.readFileSync('./static/form.html', 'utf8');
   // Build an HTTP response.
   const response = {
     statusCode: 200,
