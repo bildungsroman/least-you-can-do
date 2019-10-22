@@ -27,6 +27,16 @@ exports.handler = async message => {
     } catch (error) {
       console.log(`Error sending email`);
       console.log(error);
+      return {
+        statusCode: 500,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          message: error.message
+        })
+      };
     }
   });
 
