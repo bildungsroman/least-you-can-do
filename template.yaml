@@ -82,6 +82,7 @@ Resources:
     Type: Custom::FunctionDeployTrigger
     Properties:
       ServiceToken: !GetAtt uploadForm.Arn
+      DeploymentTimestamp: !Ref DeploymentTimestamp
 Parameters:
   StackTagName:
     Type: String
@@ -95,6 +96,9 @@ Parameters:
   EnvConfigsenderEmailAsString:
     Type: AWS::SSM::Parameter::Value<String>
     Default: /<EnvironmentName>/senderEmail
+  DeploymentTimestamp:
+    Type: Number
+    Description: Deployment preparation timestamp in milliseconds Since Epoch (injected by Stackery at deployment time)
 Metadata:
   EnvConfigParameters:
     EnvConfigsenderEmailAsString: senderEmail
