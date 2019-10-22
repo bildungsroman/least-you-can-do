@@ -29,14 +29,13 @@ exports.handler = async event => {
     throw err;
   }
 
-  const responseBody = fs.readFileSync('./static/form.html', 'utf8');
   // Build an HTTP response.
   const response = {
     statusCode: 200,
     headers: {
       'Content-Type': 'text/html'
     },
-    body: responseBody
+    body: 'Content uploaded!'
   };
 
   return response;
