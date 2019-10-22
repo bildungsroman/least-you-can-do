@@ -69,10 +69,6 @@ function generateEmailBody (name, company) {
       body {
         font-family: sans-serif;
       }
-
-      div {
-        padding: 5vw 0;
-      }
     </style>
     `;
 
