@@ -28,7 +28,7 @@ Once you're all set up in Stackery, follow the instructions to create and deploy
 5. Select __Use Existing Repo__ and enter your forked repo URL
 6. Click __Add Stack__ to add your stack
 
-Before deploying, you need to add your email to your environment parameters.
+Before deploying, you need to add the email address you want to send your emails from to your environment parameters.
 
 1. Navigate to your [environments](https://app.stackery.io/environments) in Stackery, and select the environment you'd like to deploy to
 2. Open the parameters tab for that environment, and add the following, replacing `<your email>` with, well, your email:
