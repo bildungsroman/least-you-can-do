@@ -9,15 +9,17 @@ This stack consists of a serverless website that looks like this:
 
 And a backend API that sends out emails using AWS Simple Email Service (SES).
 
-Employers can 
-
-## Deployment instructions
+## Instructions
 
 The easiest way to deploy this app is to use the same tool I used to build it: [Stackery](https://www.stackery.io/). The finished stack looks like this:
 
 ![Stack image](img/stack.png)
 
-If you don't already have a Stackery account, [sign up for an account](https://app.stackery.io/sign-up), then follow the [Quickstart](https://docs.stackery.io/docs/quickstart/quickstart-nodejs/) to get everything up and running. To import an existing stack, you'll need Pro features. Luckily, there's a seven-day trial, so go ahead and [start that](https://app.stackery.io/settings/billing) too.
+If you don't already have a Stackery account, [sign up for an account](https://app.stackery.io/sign-up), then follow the [Quickstart](https://docs.stackery.io/docs/quickstart/quickstart-nodejs/) to get everything up and running. To import an existing stack, you'll need Pro features. Luckily, there's a free seven-day trial, so go ahead and [start that](https://app.stackery.io/settings/billing) too.
+
+Once you're all set up in Stackery, follow the instructions to create and deploy this stack.
+
+### Setup
 
 1. Fork this stack
 2. Navigate to your [stacks](https://app.stackery.io/stacks) in Stackery, and click __Add a Stack__
