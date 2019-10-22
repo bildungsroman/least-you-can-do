@@ -94,7 +94,7 @@ async function sendEmail (email, subject, body) {
         Data: subject
       }
     },
-    Source: process.env.FROM_EMAIL
+    Source: process.env.SENDER_EMAIL
   };
 
   const ses = new AWS.SES();
@@ -102,7 +102,23 @@ async function sendEmail (email, subject, body) {
 }
 
 // Send confirmation email if requested
-async function sendConfirmation (senderEmail, receiverEmails) {
+async function sendConfirmation (senderEmail, name, receiverEmails) {
+  let prettyEmailList;
+  if (receiverEmails.length > 1) {
+    prettyEmailList = receiverEmails.forEach(email => {
+      `${email} `
+    })
+  } else {
+    prettyEmailList = receiverEmails;
+  }
+  const confirmationBody = `
+<div>
+  <p>Hello ${name},</p>
+  <p>Emails have been sent kindly informing the individual that the position they applied to at your company has been filled to the following addresses:</p>
+  <p>${prettyEmailList}</p>
+  <p>Thanks for doing the decent thing!</p>
+</div>
+  `
   let params = {
     Destination: {
       ToAddresses: [
@@ -113,7 +129,7 @@ async function sendConfirmation (senderEmail, receiverEmails) {
       Body: {
         Html: {
           Charset: 'UTF-8',
-          Data: body
+          Data: confirmationBody
         }
       },
       Subject: {
@@ -121,7 +137,7 @@ async function sendConfirmation (senderEmail, receiverEmails) {
         Data: `Confirmation: emails sent`
       }
     },
-    Source: process.env.FROM_EMAIL
+    Source: process.env.SENDER_EMAIL
   };
 
   const ses = new AWS.SES();
