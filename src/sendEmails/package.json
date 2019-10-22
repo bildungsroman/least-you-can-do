@@ -1,6 +1,9 @@
 {
   "name": "handlesubmit",
   "version": "1.0.0",
+  "dependencies": {	
+    "qs": "^6.9.0"	
+  },
   "devDependencies": {
     "aws-sdk": "~2"
   }

@@ -1,8 +1,9 @@
 const AWS = require('aws-sdk');
+const qs = require('qs');
 
 exports.handler = async message => {
   console.log(message);
-  const formData = JSON.parse(message.body);
+  const formData = qs.parse(message.body);
   console.log(formData);
 
   const name = formData.sender;
