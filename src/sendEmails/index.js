@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const async = require('async');
 
 exports.handler = async message => {
   console.log(message);
