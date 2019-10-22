@@ -9,9 +9,10 @@ exports.handler = async message => {
   const name = formData.sender;
   const company = formData.company;
   const senderEmail = formData.senderEmail;
-  const receiverEmails = formData.receiverEmails; // array of emails
+  const receiverEmails = formData.receiverEmails; // email string - needs to be converted to array
+  const parsedReceiverEmails = typeof receiverEmails === 'string' ? [receiverEmails] : receiverEmails.replace(/\s+/g, '').split(',');
 
-  for (const email of receiverEmails) {
+  for (const email of parsedReceiverEmails) {
     try {
       // Create the email
       body = await generateEmailBody(name, company);
@@ -22,7 +23,7 @@ exports.handler = async message => {
       console.log(`Email sent`);
       // Send confirmation email if entered
       if (senderEmail) {
-        await sendConfirmation(senderEmail, receiverEmails);
+        await sendConfirmation(senderEmail, name, receiverEmails);
         console.log(`Confirmation sent to ${senderEmail}`);
       }
     } catch (error) {
@@ -113,19 +114,11 @@ async function sendEmail (email, subject, body) {
 
 // Send confirmation email if requested
 async function sendConfirmation (senderEmail, name, receiverEmails) {
-  let prettyEmailList;
-  if (receiverEmails.length > 1) {
-    prettyEmailList = receiverEmails.forEach(email => {
-      `${email} `
-    })
-  } else {
-    prettyEmailList = receiverEmails;
-  }
   const confirmationBody = `
 <div>
   <p>Hello ${name},</p>
-  <p>Emails have been sent kindly informing the individual that the position they applied to at your company has been filled to the following addresses:</p>
-  <p>${prettyEmailList}</p>
+  <p>Emails kindly informing that the position at your company has been filled have been sent to the following addresses:</p>
+  <p>${receiverEmails}</p>
   <p>Thanks for doing the decent thing!</p>
 </div>
   `
