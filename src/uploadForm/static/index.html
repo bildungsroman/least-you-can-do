@@ -24,24 +24,25 @@
       <form id="emailForm" action="https://j4x5c3in82.execute-api.us-west-2.amazonaws.com/development/submit" method="post">
         <div class="form-row">
           <div class="col">
-            <input id="sender" type="text" class="form-control" placeholder="Your name" required>
+            <input id="sender" name="sender" type="text" class="form-control" placeholder="Your name" required>
             <small id="senderHelp" class="form-text text-muted">Required.</small>
           </div>
           <div class="col">
-            <input id="company" type="text" class="form-control" placeholder="Your company" required>
+            <input id="company" name="company" type="text" class="form-control" placeholder="Your company" required>
             <small id="companyHelp" class="form-text text-muted">Required.</small>
           </div>
           <div class="col">
-            <input id="senderEmail" type="email" class="form-control" placeholder="Your email">
+            <input id="senderEmail" name="senderEmail" type="email" class="form-control" placeholder="Your email">
             <small id="emailHelp" class="form-text text-muted">Optional. Enter to receive a confirmation email.</small>
           </div>
         </div>
         <div class="form-group">
           <label for="receiverEmails">Paste one or more email addresses below (separted by commas)</label>
-          <textarea class="form-control" id="receiverEmails" rows="3"></textarea>
+          <textarea id="receiverEmails" name="receiverEmails" class="form-control" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary" value="Submit">Go ahead, be decent!</button>
       </form>
+      <small id="js-form-response" class="form-text text-muted"></p>
     </div>
 
     <footer class="footer mt-auto text-center">
