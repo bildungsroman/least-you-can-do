@@ -23,11 +23,6 @@ exports.handler = async message => {
       console.log(`Sending email to ${email}.`);
       await sendEmail(email, header, body);
       console.log(`Email sent`);
-      // Send confirmation email if entered
-      if (senderEmail) {
-        await sendConfirmation(senderEmail, name, receiverEmails);
-        console.log(`Confirmation sent to ${senderEmail}`);
-      }
     } catch (error) {
       console.log(`Error sending email`);
       console.log(error);
@@ -43,6 +38,12 @@ exports.handler = async message => {
       };
     }
   };
+
+  // Send confirmation email if entered
+  if (senderEmail) {
+    await sendConfirmation(senderEmail, name, receiverEmails);
+    console.log(`Confirmation sent to ${senderEmail}`);
+  }
 
   return {
     statusCode: 302,
@@ -70,7 +71,7 @@ function generateEmailBody (name, company) {
       }
 
       div {
-        padding: 10vw;
+        padding: 5vw 0;
       }
     </style>
     `;
