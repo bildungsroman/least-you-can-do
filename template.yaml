@@ -51,11 +51,6 @@ Resources:
         Variables:
           BUCKET_NAME: !Ref FormContent
           BUCKET_ARN: !GetAtt FormContent.Arn
-  uploadFormDeployTrigger:
-    Type: Custom::FunctionDeployTrigger
-    Properties:
-      ServiceToken: !GetAtt uploadForm.Arn
-      DeploymentTimestamp: !Ref DeploymentTimestamp
   sendEmails:
     Type: AWS::Serverless::Function
     Properties:
@@ -93,9 +88,6 @@ Parameters:
   EnvironmentAPIGatewayStageName:
     Type: String
     Description: Environment name used for API Gateway Stage names (injected by Stackery at deployment time)
-  DeploymentTimestamp:
-    Type: Number
-    Description: Deployment preparation timestamp in milliseconds Since Epoch (injected by Stackery at deployment time)
   EnvConfigsenderEmailAsString:
     Type: AWS::SSM::Parameter::Value<String>
     Default: /<EnvironmentName>/senderEmail
