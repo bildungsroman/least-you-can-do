@@ -71,6 +71,8 @@ Resources:
       Tracing: Active
       Policies:
         - AWSXrayWriteOnlyAccess
+        - SESCrudPolicy:
+            IdentityName: !Ref EnvConfigsenderEmailAsString
       Events:
         FormApiPOSTsubmit:
           Type: Api
