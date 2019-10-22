@@ -92,7 +92,7 @@ Resources:
     Properties:
       BucketName: !Sub ${AWS::StackName}-formconte-${AWS::AccountId}
       WebsiteConfiguration:
-        IndexDocument: form.html
+        IndexDocument: submitted.html
 Parameters:
   StackTagName:
     Type: String
