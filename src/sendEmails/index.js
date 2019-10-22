@@ -33,7 +33,7 @@ exports.handler = async message => {
 
   return {
     statusCode: 302,
-    headers: {'Location': 'http://least-you-can-do-test-formconte-322639699510.s3-website-us-west-2.amazonaws.com/submitted'}
+    headers: {'Location': 'http://least-you-can-do-development-formconte-322639699510.s3-website-us-west-2.amazonaws.com/submitted.html'}
   };
 
 };
