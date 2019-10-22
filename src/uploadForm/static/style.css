@@ -63,6 +63,10 @@ h6 {
   margin-top: 20px;
 }
 
+.form-text {
+  font-style: italic;
+}
+
 .footer {
   background-color: #333;
   color: rgba(255, 255, 255, .5);
