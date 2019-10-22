@@ -16,6 +16,8 @@ Resources:
       Tracing: Active
       Policies:
         - AWSXrayWriteOnlyAccess
+        - S3CrudPolicy:
+            BucketName: !Ref FormContent
       Events:
         FormApiGETform:
           Type: Api
@@ -23,6 +25,10 @@ Resources:
             Path: /form
             Method: GET
             RestApiId: !Ref FormApi
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref FormContent
+          BUCKET_ARN: !GetAtt FormContent.Arn
   handleSubmit:
     Type: AWS::Serverless::Function
     Properties:
@@ -38,6 +44,8 @@ Resources:
       Tracing: Active
       Policies:
         - AWSXrayWriteOnlyAccess
+        - S3CrudPolicy:
+            BucketName: !Ref FormContent
       Events:
         FormApiPOSTsubmit:
           Type: Api
@@ -45,6 +53,10 @@ Resources:
             Path: /submit
             Method: POST
             RestApiId: !Ref FormApi
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref FormContent
+          BUCKET_ARN: !GetAtt FormContent.Arn
   FormApi:
     Type: AWS::Serverless::Api
     Properties:
@@ -75,6 +87,12 @@ Resources:
       Cors:
         AllowHeaders: '''Authorization,Content-Type'''
         AllowOrigin: '''*'''
+  FormContent:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub ${AWS::StackName}-formconte-${AWS::AccountId}
+      WebsiteConfiguration:
+        IndexDocument: form.html
 Parameters:
   StackTagName:
     Type: String
