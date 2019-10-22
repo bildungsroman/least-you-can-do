@@ -78,6 +78,10 @@ Resources:
       Environment:
         Variables:
           SENDER_EMAIL: !Ref EnvConfigsenderEmailAsString
+  uploadFormDeployTrigger:
+    Type: Custom::FunctionDeployTrigger
+    Properties:
+      ServiceToken: !GetAtt uploadForm.Arn
 Parameters:
   StackTagName:
     Type: String
