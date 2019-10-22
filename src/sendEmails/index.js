@@ -10,7 +10,9 @@ exports.handler = async message => {
   const company = formData.company;
   const senderEmail = formData.senderEmail;
   const receiverEmails = formData.receiverEmails; // email string - needs to be converted to array
-  const parsedReceiverEmails = typeof receiverEmails === 'string' ? [receiverEmails] : receiverEmails.replace(/\s+/g, '').split(',');
+  const parsedReceiverEmails = receiverEmails.replace(/\s+/g, '').split(',');
+
+  console.log('parsedReceiverEmails: ', parsedReceiverEmails);
 
   for (const email of parsedReceiverEmails) {
     try {
