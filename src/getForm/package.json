@@ -2,7 +2,9 @@
   "name": "function",
   "version": "1.0.0",
   "dependencies": {
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "mime-types": "2.1.24",
+    "recursive-readdir": "2.2.2"
   },
   "devDependencies": {
     "aws-sdk": "~2"

@@ -46,7 +46,7 @@ async function uploadStaticContent() {
   // List files in 'static' directory
   const files = await recursiveReaddir('static');
 
-  // Upload files asynchronously to frontend content object store
+  // Upload files asynchronously to FormContent object store
   const promises = files.map(file => s3.putObject({
     Bucket: process.env.BUCKET_NAME,
     Key: path.relative('static', file),
