@@ -78,6 +78,9 @@ Resources:
             Path: /submit
             Method: POST
             RestApiId: !Ref FormApi
+      Environment:
+        Variables:
+          SENDER_EMAIL: !Ref EnvConfigsenderEmailAsString
 Parameters:
   StackTagName:
     Type: String
@@ -91,3 +94,9 @@ Parameters:
   DeploymentTimestamp:
     Type: Number
     Description: Deployment preparation timestamp in milliseconds Since Epoch (injected by Stackery at deployment time)
+  EnvConfigsenderEmailAsString:
+    Type: AWS::SSM::Parameter::Value<String>
+    Default: /<EnvironmentName>/senderEmail
+Metadata:
+  EnvConfigParameters:
+    EnvConfigsenderEmailAsString: senderEmail
