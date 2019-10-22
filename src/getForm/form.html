@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>LYCD | Just let them know, for f*ck's sake</title>
+  <meta name="description" content="An easy way to let applicants know they didn't get the job, so they can stop wondering and move on to other opportunities.">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <style>
+    body {
+      background: #fff;
+      width: 100%;
+      height: 100%;
+      color: #212529 !important;
+      font-family: "Open Sans", sans-serif !important;
+      font-size: 1rem !important;
+      font-weight: normal !important;
+      line-height: 1.5 !important;
+    }
+
+    h1 {
+      margin-top: 70px !important;
+      font-size: 3.8rem !important;
+      margin-bottom: 7vh !important;
+    }
+
+    h2 {
+      margin: 20px !important;
+      font-size: 2.4rem !important;
+    }
+
+    a {
+      color: #e6f2ff !important;
+      text-decoration: none !important;
+    }
+
+    a:focus,
+    a:hover {
+      color: #99ccff !important;
+      text-decoration: none !important;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .h1,
+    .h2,
+    .h3,
+    .h4,
+    .h5,
+    .h6 {
+      margin-bottom: 0.5rem;
+      font-family: inherit;
+      font-weight: 700;
+      line-height: 1.1;
+      color: #3a3a3a;
+    }
+
+    .form-container {
+      padding: 20px;
+      margin: 5vh auto;
+      background-color: #e6f2ff;
+    }
+
+    .form-container > input, h2 {
+      padding: 10px;
+    }
+
+    .form-container label {
+      margin-top: 20px;
+    }
+
+    .footer {
+      background-color: #333;
+      color: rgba(255, 255, 255, .5);
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    @media (max-width:991px) {
+      .mobile-hidden {
+        display: none !important;
+      }
+    }
+  </style>
+
+  <div class="mx-auto h-100">
+    <div class="container">
+      <h1 class="text-center">Hello, Employers!</h1>
+      <p>You know when you post a job, and dozens, maybe hundreds of applicants respond for one role? One person eventually gets the job, but by then you just can't be bothered to reply to the other applicants that that position is no longer available.</p>
+      <p>The decent thing would be to shoot a short email saying, "Sorry friend, but the position is filled. Good luck!" But who's got time for that? I mean, it would take literally 15 seconds of your precious day, but that Twitter feed ain't gonna scroll itself!</p>
+      <p>That's where LYCD comes in! Just fill out the form below with your email address and a comma-separated list of applicant email addresses, and we'll send them a nice email politely asking them to move on in their job search. You get to do the decent thing, and they get to sleep at night. Win-win!</p>
+      <p>To use LYCD, fill out the form below and hit the button. It is <em>literally</em> the least you can do.</p>
+    </div>
+    <div class="container form-container">
+      <h2 class="text-center">The Form</h2>
+      <form action="submit" method="post">
+        <div class="form-row">
+          <div class="col">
+            <input id="senderEmail" type="email" class="form-control" placeholder="Your email" required>
+          </div>
+          <div class="col">
+            <input id="company" type="text" class="form-control" placeholder="Your company" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="receiverEmails">Paste one or more email addresses below (separted by commas)</label>
+          <textarea class="form-control" id="receiverEmails" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" value="Submit">Go ahead, be decent!</button>
+      </form>
+    </div>
+
+    <footer class="footer mt-auto text-center">
+      <div class="inner">
+        <p>Made serverlessly by <a href="https://twitter.com/annaspies" target="_blank">@annaspies</a> in one evening thanks to <a href="https://www.stackery.io/" target="_blank">Stackery</a>.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
