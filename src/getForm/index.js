@@ -3,6 +3,7 @@ const path = require('path');
 const AWS = require('aws-sdk');
 const mime = require('mime-types');
 const recursiveReaddir = require('recursive-readdir');
+const cfnCR = require('cfn-custom-resource');
 const s3 = new AWS.S3();
 
 exports.handler = async event => {
